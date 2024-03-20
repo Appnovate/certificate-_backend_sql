@@ -44,6 +44,12 @@
     },
     "longitude": {
       "type": "float"
+    },
+    "imageId": {
+      "type": "integer"
+    },
+    "userId": {
+      "type": "integer"
     }
   }
 }
