@@ -32,7 +32,7 @@ module.exports = [
     config: {
       enabled: true,
       header: '*',
-      origin: ['https://*.itianz.com']
+      origin: ['https://dev1.itianz.com/','https://itianz.com/','https://dev2.itianz.com/api']
     }
   },
   'strapi::poweredBy',
