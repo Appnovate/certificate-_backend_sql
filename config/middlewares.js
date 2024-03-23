@@ -27,14 +27,7 @@ module.exports = [
       },
     },
   },
-  {
-    name: 'strapi::cors',
-    config: {
-      enabled: true,
-      header: '*',
-      origin: ['https://dev1.itianz.com/','https://itianz.com/','https://dev2.itianz.com/api']
-    }
-  },
+  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   {
