@@ -50,6 +50,9 @@
     },
     "userId": {
       "type": "integer"
+    },
+    "date": {
+      "type": "date"
     }
   }
 }

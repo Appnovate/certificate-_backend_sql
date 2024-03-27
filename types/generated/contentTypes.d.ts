@@ -387,6 +387,7 @@ export interface ApiCostomerCostomer extends Schema.CollectionType {
     longitude: Attribute.Float;
     imageId: Attribute.Integer;
     userId: Attribute.Integer;
+    date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
