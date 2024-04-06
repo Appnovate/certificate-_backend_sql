@@ -1,5 +1,4 @@
-module.exports = ({env}) => ({
-    
+module.exports = ({ env }) => ({
   upload: {
     config: {
       provider: "aws-s3",
@@ -8,9 +7,9 @@ module.exports = ({env}) => ({
         secretAccessKey: env("WASABI_SECRET_KEY"),
         region: env("WASABI_REGION"),
         params: {
-          ACL: env('WASABI_ACL', 'public-read'),
+          ACL: env("WASABI_ACL", "public-read"),
           Bucket: env("WASABI_BUCKET"),
-          Key: env("WASABI_BUCKET_KEY")
+          Key: env("WASABI_BUCKET_KEY"),
         },
         endpoint: env("WASABI_END_POINT"),
       },
@@ -21,5 +20,4 @@ module.exports = ({env}) => ({
       },
     },
   },
-
 });
