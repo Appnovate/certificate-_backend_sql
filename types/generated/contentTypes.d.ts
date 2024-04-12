@@ -362,6 +362,86 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiCostomerCostomer extends Schema.CollectionType {
+  collectionName: 'costomers';
+  info: {
+    singularName: 'costomer';
+    pluralName: 'costomers';
+    displayName: 'customer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    siteName: Attribute.String & Attribute.Required;
+    location: Attribute.String & Attribute.Required;
+    notes: Attribute.Text;
+    products: Attribute.Text;
+    agentName: Attribute.String;
+    status: Attribute.Enumeration<
+      ['pending', 'quotation', 'done', 'canceled']
+    > &
+      Attribute.DefaultTo<'pending'>;
+    latitude: Attribute.Float;
+    longitude: Attribute.Float;
+    imageId: Attribute.Integer;
+    userId: Attribute.Integer;
+    date: Attribute.Date;
+    userName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::costomer.costomer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::costomer.costomer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPledgeUserPledgeUser extends Schema.CollectionType {
+  collectionName: 'pledge_users';
+  info: {
+    singularName: 'pledge-user';
+    pluralName: 'pledge-users';
+    displayName: 'pledge-user';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    phone: Attribute.BigInteger & Attribute.Required;
+    city: Attribute.String;
+    isCheck: Attribute.Boolean & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pledge-user.pledge-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pledge-user.pledge-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -823,85 +903,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCostomerCostomer extends Schema.CollectionType {
-  collectionName: 'costomers';
-  info: {
-    singularName: 'costomer';
-    pluralName: 'costomers';
-    displayName: 'customer';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    siteName: Attribute.String & Attribute.Required;
-    location: Attribute.String & Attribute.Required;
-    notes: Attribute.Text;
-    products: Attribute.Text;
-    agentName: Attribute.String;
-    status: Attribute.Enumeration<
-      ['pending', 'quotation', 'done', 'canceled']
-    > &
-      Attribute.DefaultTo<'pending'>;
-    latitude: Attribute.Float;
-    longitude: Attribute.Float;
-    imageId: Attribute.Integer;
-    userId: Attribute.Integer;
-    date: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::costomer.costomer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::costomer.costomer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPledgeUserPledgeUser extends Schema.CollectionType {
-  collectionName: 'pledge_users';
-  info: {
-    singularName: 'pledge-user';
-    pluralName: 'pledge-users';
-    displayName: 'pledge-user';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    email: Attribute.Email & Attribute.Required & Attribute.Unique;
-    phone: Attribute.BigInteger & Attribute.Required;
-    city: Attribute.String;
-    isCheck: Attribute.Boolean & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pledge-user.pledge-user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pledge-user.pledge-user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -912,6 +913,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::costomer.costomer': ApiCostomerCostomer;
+      'api::pledge-user.pledge-user': ApiPledgeUserPledgeUser;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -921,8 +924,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::costomer.costomer': ApiCostomerCostomer;
-      'api::pledge-user.pledge-user': ApiPledgeUserPledgeUser;
     }
   }
 }
