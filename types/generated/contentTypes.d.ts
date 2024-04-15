@@ -378,7 +378,6 @@ export interface ApiCostomerCostomer extends Schema.CollectionType {
     location: Attribute.String & Attribute.Required;
     notes: Attribute.Text;
     products: Attribute.Text;
-    agentName: Attribute.String;
     status: Attribute.Enumeration<
       ['pending', 'quotation', 'done', 'canceled']
     > &
@@ -389,6 +388,7 @@ export interface ApiCostomerCostomer extends Schema.CollectionType {
     userId: Attribute.Integer;
     date: Attribute.Date;
     userName: Attribute.String;
+    contact: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

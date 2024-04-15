@@ -26,9 +26,6 @@
     "products": {
       "type": "text"
     },
-    "agentName": {
-      "type": "string"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -56,6 +53,9 @@
     },
     "userName": {
       "type": "string"
+    },
+    "contact": {
+      "type": "biginteger"
     }
   }
 }
