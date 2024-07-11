@@ -56,6 +56,13 @@
     },
     "contact": {
       "type": "biginteger"
+    },
+    "imagePath": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
